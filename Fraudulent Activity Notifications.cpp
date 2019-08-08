@@ -43,9 +43,10 @@ int main()
                         if(j*2<=ara[i])
                             sum++;
                     }
-                    else{
+                    else
+                    {
                         int v = j;
-                        while(cnt[++j]==0){}
+                        while(cnt[++j]==0);
                         v+=j;
                         if(v<=ara[i])
                             sum++;
