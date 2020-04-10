@@ -21,6 +21,6 @@ SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data,
     // add insert node at the next position
     head_ptr->next = insert_node;
 
-    // return
+    // return modified head from pointer
     return head; 
 }
