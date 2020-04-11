@@ -1,21 +1,26 @@
 SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
-    int cnt=1;
-    SinglyLinkedListNode *nptr = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
-    nptr->data = data;
-    SinglyLinkedListNode *tmp;
-    if(position==0)
+    SinglyLinkedListNode* head_ptr = head;
+    SinglyLinkedListNode* insert_node = new SinglyLinkedListNode(data);
+
+    // check for no movement
+    if (!position)
     {
-        nptr->next = head;
-        head = nptr;
+        insert_node->next = head;
+        head = insert_node;
         return head;
     }
-    tmp = head;
-    while(cnt<position)
-    {
-        tmp=tmp->next;
-        cnt++;
+
+    // iterate through node to get to one before position
+    for (int i = 1; i < position; i++) {
+        head_ptr = head_ptr->next;
     }
-    nptr->next=tmp->next;
-    tmp->next = nptr;
-    return head;
+
+    // set the insert node's next to the temp node's next
+    insert_node->next = head_ptr->next;
+
+    // add insert node at the next position
+    head_ptr->next = insert_node;
+
+    // return modified head from pointer
+    return head; 
 }
